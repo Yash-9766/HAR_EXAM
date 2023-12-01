@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Human Action Recognition</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Add custom styles here */
+        .selected-image-container {
+            width: 300px;
+            /* Set the desired width for the image container */
+            height: 300px;
+            /* Set the desired height for the image container */
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+        }
+
+        .selected-image {
+            max-width: 100%;
+            /* Constrain image width within the container */
+            max-height: 100%;
+            /* Constrain image height within the container */
+        }
+    </style>
+</head>
+
+<body class="bg-cover bg-center bg-no-repeat"
+    style="background-image: url('https://img.freepik.com/free-vector/gradient-dynamic-lines-background_23-2149005728.jpg?t=st=1698675892~exp=1698676492~hmac=bd868f2e53e36504dc3002e24d5e6d70e70cbf50edaaf5399468263b11ced33e');">
+    <div class="flex h-screen items-center justify-center">
+        <div class="text-white text-center">
+            <h1 class="text-5xl text-red-700 mb-6 font-extrabold tracking-wide">Human Action Recognition</h1>
+
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <label for="image" class="text-lg text-white mb-4">
+                    Upload an image
+                </label>
+                <input type="file" id="image" name="image" accept="image/*" capture="camera"
+                    class="mb-4 p-2 rounded border">
+                <button class="bg-blue-500 hover-bg-blue-700 text-white text-xl py-2 px-4 rounded-full"
+                    type="submit">Upload and Recognize</button>
+            </form>
+
+            <div class="mt-8">
+                <div class="bg-white bg-opacity-60 p-4 rounded mb-4">
+                    <div class="bg-yellow-700 text-white text-3xl p-2 rounded">
+                        <p class="text-center">Prediction: <span class="font-bold">{{ prediction }}</span></p>
+                    </div>
+                </div>
+                <div class="mb-4 selected-image-container">
+                    <img src="{{ image_url }}" alt="Selected Image" class="selected-image">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
